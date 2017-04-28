@@ -36,7 +36,7 @@
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="WeatherImage" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25,0,25,0" Stretch="Fill"/>
+            <Image x:Name="WeatherImage" Grid.Column="0" Source="Assets/sunny.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Stretch="Uniform"/>
             <TextBlock x:Name="TemperatureTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="72"/>
             <Grid Grid.Column="2">
                 <Grid.ColumnDefinitions>
@@ -47,9 +47,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="WindTextTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Wind speed:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="WindTextTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Wind speed:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
                 <TextBlock x:Name="WindSpeedTextBlock" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="? mps" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
-                <TextBlock x:Name="PrecipitationTextTextBlock" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Сhance of precipitation:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="PrecipitationTextTextBlock" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Сhance of precipitation:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
                 <TextBlock x:Name="PrecipitationChanceTextBlock" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="? %" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
             </Grid>
         </Grid>
