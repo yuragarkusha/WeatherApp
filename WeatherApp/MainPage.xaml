@@ -6,8 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <ImageSource x:Key="sunny">sunny.png</ImageSource>
+    </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-700,0">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -15,23 +18,57 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
+
             <TextBlock x:Name="EnterCityTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Enter a city or zip code" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
             <TextBox x:Name="CityTextBox" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" PlaceholderText="City/Zip code" FontSize="20"/>
             <Button x:Name="SelectionButton" Grid.Column="2" Content="Select" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25,25,25,25" FontSize="20"/>
         </Grid>
-        
-        
-        
-        
-        
-        
-        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="WeatherImage" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25,0,25,0" Stretch="Fill"/>
+            <TextBlock x:Name="TemperatureTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="72"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="WindTextTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Wind speed:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="WindSpeedTextBlock" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="? mps" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="PrecipitationTextTextBlock" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Сhance of precipitation:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="PrecipitationChanceTextBlock" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="? %" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="CityTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="Selected city" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="28"/>
+            <TextBlock x:Name="DateTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="Current date" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="36"/>
+            <TextBlock x:Name="ForecastTextBlock" Grid.Column="2" TextWrapping="Wrap" Text="Forecast" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="28"/>
+        </Grid>
+
+
+
+
+
+
 
 
     </Grid>
