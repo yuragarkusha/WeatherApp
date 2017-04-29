@@ -26,5 +26,10 @@ namespace WeatherApp
         {
             this.InitializeComponent();
         }
+
+        private void SelectionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
