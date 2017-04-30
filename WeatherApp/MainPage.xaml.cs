@@ -29,7 +29,12 @@ namespace WeatherApp
 
         private void SelectionButton_Click(object sender, RoutedEventArgs e)
         {
+            var city = CityTextBox.Text;
+            
+            var weatherManager = new WeatherManager("afeced2c92fe061c2d3150a13323e4d9", "Kyiv");
+            weatherManager.ParseCurrentWeatherDataFromOpenWeatherMap();
 
+            //TemperatureTextBlock.Text = weatherManager.TemperatureCur.ToString();
         }
     }
 }
