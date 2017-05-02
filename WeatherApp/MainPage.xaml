@@ -26,8 +26,8 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="EnterCityTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Enter a city or zip code" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
-            <TextBox x:Name="CityTextBox" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" PlaceholderText="City/Zip code" FontSize="20"/>
+            <TextBlock x:Name="EnterCityTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Enter a city or zip code :" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+            <TextBox x:Name="CityTextBox" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" PlaceholderText="City/Zip code" FontSize="20" KeyDown="CityTextBox_KeyDown"/>
             <Button x:Name="SelectionButton" Grid.Column="2" Content="Select" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25,25,25,25" FontSize="20" Click="SelectionButton_Click"/>
         </Grid>
         <Grid Grid.Row="2">
@@ -49,15 +49,15 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="WindTextTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Wind speed:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
-                <TextBlock x:Name="WindSpeedTextBlock" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
-                <TextBlock x:Name="WindDirectionTextTextBlock" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Direction of wind:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
-                <TextBlock x:Name="WindDirectionTextBlock" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="WindTextTextBlock" Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="Wind speed:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="WindSpeedTextBlock" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="WindDirectionTextTextBlock" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="Direction of wind:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="WindDirectionTextBlock" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
 
-                <TextBlock x:Name="HumidityTextTextBlock" Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Text="Humidity:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
-                <TextBlock x:Name="HumidityTextBlock" Grid.Column="3" Grid.Row="0" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
-                <TextBlock x:Name="PressureTextTextBlock" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="Pressure:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
-                <TextBlock x:Name="PressureTextBlock" Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="HumidityTextTextBlock" Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Text="Humidity:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="HumidityTextBlock" Grid.Column="3" Grid.Row="0" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="PressureTextTextBlock" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="Pressure:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                <TextBlock x:Name="PressureTextBlock" Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="3">
@@ -66,13 +66,9 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="CityTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="City not selected" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,0,0,0" FontSize="18"/>
+            <TextBlock x:Name="CityTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="City not selected" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,0,0" FontSize="18"/>
             <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock x:Name="PrecipitationTextBlock" Grid.Row="0" TextWrapping="Wrap" Text="Precipitation: " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="17"/>
+    
             </Grid>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -81,33 +77,119 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="ForecastTextTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="Weather:" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
-                    <TextBlock x:Name="ForecastTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                    <TextBlock x:Name="MinTemparatureTextTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="Min:" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                    <TextBlock x:Name="MinTemparatureTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                    <TextBlock x:Name="MaxTemparatureTextTextBlock" Grid.Column="2" TextWrapping="Wrap" Text="Max:" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                    <TextBlock x:Name="MaxTemparatureTextBlock" Grid.Column="3" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="MinTemparatureTextTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="Min:" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
-                    <TextBlock x:Name="MinTemparatureTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
-                    <TextBlock x:Name="MaxTemparatureTextTextBlock" Grid.Column="2" TextWrapping="Wrap" Text="Max:" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
-                    <TextBlock x:Name="MaxTemparatureTextBlock" Grid.Column="3" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                    <TextBlock x:Name="ForecastTextBlock" Grid.Column="0" TextWrapping="Wrap" Text="Weather:" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
+                    <TextBlock x:Name="PrecipitationTextBlock" Grid.Column="1" TextWrapping="Wrap" Text="Precipitation: " HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="25,0,25,0" FontSize="22"/>
                 </Grid>
             </Grid>
         </Grid>
-
-
-
-
-
-
-
-
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DateDay1TextBlock" Grid.Row="0" TextWrapping="Wrap" Text="Day 1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="WeatherDescriptionDay1TextBlock" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="WeatherImageDay1" Grid.Column="0" Source="Assets/sunny.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Stretch="Uniform"/>
+                    <TextBlock x:Name="TemperatureCurDay1TextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="20"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DateDay2TextBlock" Grid.Row="0" TextWrapping="Wrap" Text="Day 2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="WeatherDescriptionDay2TextBlock" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="WeatherImageDay2" Grid.Column="0" Source="Assets/sunny.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Stretch="Uniform"/>
+                    <TextBlock x:Name="TemperatureCurDay2TextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DateDay3TextBlock" Grid.Row="0" TextWrapping="Wrap" Text="Day 3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="WeatherDescriptionDay3TextBlock" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="WeatherImageDay3" Grid.Column="0" Source="Assets/sunny.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Stretch="Uniform"/>
+                    <TextBlock x:Name="TemperatureCurDay3TextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DateDay4TextBlock" Grid.Row="0" TextWrapping="Wrap" Text="Day 4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="WeatherDescriptionDay4TextBlock" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="WeatherImageDay4" Grid.Column="0" Source="Assets/sunny.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Stretch="Uniform"/>
+                    <TextBlock x:Name="TemperatureCurDay4TextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DateDay5TextBlock" Grid.Row="0" TextWrapping="Wrap" Text="Day 5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <TextBlock x:Name="WeatherDescriptionDay5TextBlock" Grid.Row="1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25,0,25,0" FontSize="18"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="WeatherImageDay5" Grid.Column="0" Source="Assets/sunny.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Stretch="Uniform"/>
+                    <TextBlock x:Name="TemperatureCurDay5TextBlock" Grid.Column="1" TextWrapping="Wrap" Text="? °C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="22"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

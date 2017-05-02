@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace WeatherApp
+namespace WeatherApp.Model
 {
-    public class CurrentWerather
+    class CurrentWerather : Weather
     {
+        private string _temperatureMin;
+        private string _temperatureMax;
         public string City { get; set; }
-        public string TemperatureCur { get; set; }
-        public string TemperatureMin { get; set; }
-        public string TemperatureMax { get; set; }
         public string HumidityValue { get; set; }
         public string HumidityUnit { get; set; }
         public string PressureValue { get; set; }
@@ -18,19 +17,22 @@ namespace WeatherApp
         public string Cloudiness { get; set; }
         public string CloudinessDescription { get; set; }
         public string PrecipitationMode { get; set; }
-        public string WeatherDescription { get; set; }
-        public string WeatherIconUrl { get; set; }
-        private string _weatherIconName;
-        
-        
 
-        public string WeatherIconName
+        public string TemperatureMin
         {
-            get { return _weatherIconName; }
+            get { return _temperatureMin; }
             set
             {
-                _weatherIconName = value;
-                WeatherIconUrl = "http://openweathermap.org/img/w/" + _weatherIconName + ".png";
+                _temperatureMin = TemperatureFormat(value);
+            }
+        }
+
+        public string TemperatureMax
+        {
+            get { return _temperatureMax; }
+            set
+            {
+                _temperatureMax = TemperatureFormat(value);
             }
         }
     }

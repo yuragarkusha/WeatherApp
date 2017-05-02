@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml;
-using System.IO;
-using System.Xml.Linq;
-using System.Net;
-using System.Net.Http;
 
-
-namespace WeatherApp
+namespace WeatherApp.Model
 {
     class WeatherManager
     {
         public string OpenWeatherMapAppId { get; set; }
         public string ChoosedCity { get; set; }
         public string CurrentWeatherUrlForXml { get; set; }
-        
+        public string WeatherForecastUrlForXml { get; set; }
+
         public WeatherManager(string openWeatherMapAppId, string choosedCity)
         {
             this.OpenWeatherMapAppId = openWeatherMapAppId;
             this.ChoosedCity = choosedCity;
             this.CurrentWeatherUrlForXml = "http://api.openweathermap.org/data/2.5/weather?q=" + choosedCity +
-                                    "&mode=xml&units=metric&APPID=" + openWeatherMapAppId;
+                                           "&mode=xml&units=metric&APPID=" + openWeatherMapAppId;
+            this.WeatherForecastUrlForXml = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + choosedCity +
+                                            "&mode=xml&units=metric&APPID=" + openWeatherMapAppId;
         }
 
         public async Task<CurrentWerather> ParseCurrentWeatherDataFromOpenWeatherMap(CurrentWerather currentWerather)
@@ -64,6 +59,29 @@ namespace WeatherApp
             currentWerather.PrecipitationMode = precipitation[0].Attributes?["mode"].Value;
 
             return currentWerather;
+        }
+
+        public async Task<WeatherForecast> ParseWeatherForecastDataFromOpenWeatherMap(WeatherForecast weatherForecast,
+            int dayOfForecast)
+        {
+            var xmlDocument = new XmlDocument();
+
+            var date = xmlDocument.GetElementsByTagName("time");
+            var temperature = xmlDocument.GetElementsByTagName("temperature");
+            var weather = xmlDocument.GetElementsByTagName("symbol");
+
+            var httpClient = new HttpClient();
+            var httpResponse = await httpClient.GetAsync(WeatherForecastUrlForXml);
+            httpResponse.EnsureSuccessStatusCode();
+            var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+            xmlDocument.LoadXml(httpResponseBody);
+
+            weatherForecast.Date = date[dayOfForecast].Attributes?["day"].Value;
+            weatherForecast.TemperatureCur = temperature[dayOfForecast].Attributes?["day"].Value;
+            weatherForecast.WeatherDescription = weather[dayOfForecast].Attributes?["name"].Value;
+            weatherForecast.WeatherIconName = weather[dayOfForecast].Attributes?["var"].Value;
+
+            return weatherForecast;
         }
     }
 }
